@@ -1,0 +1,59 @@
+version: "3"
+
+services:
+  influxdb:
+    image: influxdb:latest
+    restart: unless-stopped
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+      - influxdb_config:/etc/influxdb2
+    ports:
+      - "8086:8086"
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: akbar@wit.com
+      DOCKER_INFLUXDB_INIT_PASSWORD: akbarWIT2024
+      DOCKER_INFLUXDB_INIT_ORG: WIT.SBY
+      DOCKER_INFLUXDB_INIT_BUCKET: bucket@wit
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: tokenSimulasiWIT@akbar2024
+
+  emqx:
+    image: emqx:latest
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "8083:8083"
+      - "8084:8084"
+      - "8883:8883"
+      - "18083:18083"
+    volumes:
+      - emqx_data:/data
+
+  mysql:
+    image: mysql:latest
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: akbarWIT2024
+      MYSQL_DATABASE: db@wit
+      MYSQL_USER: akbar@wit.com
+      MYSQL_PASSWORD: akbarWIT2024
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: akbarWIT2024
+    ports:
+      - "8081:80"
+
+volumes:
+  influxdb_data: {}
+  influxdb_config: {}
+  emqx_data: {}
+  mysql_data: {}

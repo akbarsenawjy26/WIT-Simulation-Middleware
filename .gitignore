@@ -1,0 +1,42 @@
+# Dependensi node_modules/
+node_modules/
+
+# Berkas yang dihasilkan
+dist/
+build/
+*.log
+npm-debug.log*
+
+# Berkas konfigurasi
+.env
+
+# Berkas yang berisi kredensial
+*.key
+*.pem
+
+# Berkas editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Berkas sistem operasi
+.DS_Store
+Thumbs.db
+
+# Berkas konfigurasi proyek
+*.config.js
+
+# Berkas sementara
+*.tmp
+*.temp
+
+# Berkas otomatis
+*.auto
+
+# Berkas yang dibuat oleh pengguna
+*.bak
+*.backup

@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "@influxdata/influxdb-client": "^1.33.2",
+    "express": "^4.19.2",
+    "influx": "^5.9.3",
+    "mqtt": "^5.7.0",
+    "mysql": "^2.18.1",
+    "winston": "^3.13.0"
+  },
+  "name": "js",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
